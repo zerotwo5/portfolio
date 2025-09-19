@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Tanvir Rahman Pranto | Cybersecurity Professional</title>
+    <meta name="description" content="Junior Red Team Analyst | Bug Hunter | Penetration Tester">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            green: '#00FF9F',
+                            cyan: '#00FFFF',
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a',
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+            scroll-behavior: smooth;
+        }
+        
+        .mono {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .skill-progress {
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-progress-bar {
+            height: 100%;
+            background-color: #00FF9F;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #00FF9F;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 159, 0.1);
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+        
+        ::selection {
+            background-color: #00FF9F;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-dark-800/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold mono text-cyber-green">pranto@root:~$</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white">About</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white">Skills</a>
+                    <a href="#certifications" class="nav-link text-gray-300 hover:text-white">Certifications</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-white">Experience</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                </div>
+                <button id="theme-toggle" class="theme-toggle p-2 rounded-full focus:outline-none">
+                    <i data-feather="moon" class="text-gray-300 w-5 h-5"></i>
+                </button>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 rounded-md focus:outline-none">
+                        <i data-feather="menu" class="text-gray-300 w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 pb-4 px-4">
+            <div class="flex flex-col space-y-2">
+                <a href="#about" class="nav-link text-gray-300 hover:text-white py-2">About</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:text-white py-2">Skills</a>
+                <a href="#certifications" class="nav-link text-gray-300 hover:text-white py-2">Certifications</a>
+                <a href="#experience" class="nav-link text-gray-300 hover:text-white py-2">Experience</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-white py-2">Projects</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-white py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 mono text-cyber-green">Md. Tanvir Rahman Pranto</h1>
+            <p class="text-xl md:text-2xl mb-8 mono text-gray-400">"Junior Red Team Analyst | Bug Hunter | Penetration Tester"</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#skills" class="px-6 py-3 bg-cyber-green text-dark-900 font-medium rounded-md hover:bg-cyber-cyan transition duration-300">View Skills</a>
+                <a href="#contact" class="px-6 py-3 border border-cyber-green text-cyber-green font-medium rounded-md hover:bg-dark-700 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-8 text-center mono text-cyber-green">About Me</h2>
+            <div class="bg-dark-700 p-8 rounded-lg shadow-lg">
+                <p class="text-gray-300 mb-4">Hello! I'm Md. Tanvir Rahman Pranto, a passionate cybersecurity learner and aspiring Red Team professional. I specialize in ethical hacking, penetration testing, and network security, with a strong interest in automation and building efficient recon workflows.</p>
+                <p class="text-gray-300 mb-4">I spend my time exploring real-world attack scenarios, solving Hack The Box and TryHackMe labs, and continuously improving my skills in reconnaissance, privilege escalation, and web exploitation. I also enjoy scripting in Bash and Python to automate repetitive security tasks and make my workflow faster and more effective.</p>
+                <p class="text-gray-300">My goal is to help secure systems by identifying vulnerabilities before attackers do. I am committed to continuous learning, staying up-to-date with the latest security tools, techniques, and methodologies, and sharing knowledge with the cybersecurity community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-12 text-center mono text-cyber-green">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Recon & Enumeration -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="search" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Recon & Enumeration</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Nmap</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Amass</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Subfinder</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>masscan</span>
+                                <span class="text-sm text-gray-400">75%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Web & App Testing -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="globe" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Web & App Testing</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Burp Suite</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>OWASP ZAP</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>SQLMap</span>
+                                <span class="text-sm text-gray-400">75%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Exploitation & Post-exploitation -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="terminal" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Exploitation</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Metasploit</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Exploit-DB</span>
+                                <span class="text-sm text-gray-400">75%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Scripting & Automation -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="code" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Scripting & Automation</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Python</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Bash</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- OS & Platforms -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="cpu" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">OS & Platforms</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Linux</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 90%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Windows</span>
+                                <span class="text-sm text-gray-400">70%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 70%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Other -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="tool" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Other</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Git</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 85%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Docker</span>
+                                <span class="text-sm text-gray-400">75%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 75%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between items-center">
+                                <span>Wireshark</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-progress rounded-full mt-1">
+                                <div class="skill-progress-bar rounded-full" style="width: 80%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800">
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-12 text-center mono text-cyber-green">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Certification 1 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="award" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Professional Bug Hunting & Advanced Web Application Security Testing</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Comprehensive training in identifying and exploiting web vulnerabilities, including OWASP Top 10, with hands-on labs and real-world scenarios.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-cyber-green">Vendor: Bytecapsuleit</span>
+                        <span class="text-xs text-gray-500">2023</span>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="award" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Hands-on Introduction to Linux Commands & Shell Scripting</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Practical course covering essential Linux commands, filesystem navigation, permissions, and shell scripting for automation tasks.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-cyber-green">Vendor: IBM</span>
+                        <span class="text-xs text-gray-500">2022</span>
+                    </div>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="award" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Networking Fundamentals</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Fundamental concepts of networking including TCP/IP, DNS, DHCP, firewalls, and network security principles.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-cyber-green">Vendor: Akamami</span>
+                        <span class="text-xs text-gray-500">2021</span>
+                    </div>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="award" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Responsive Web Design Certificate</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Certification covering HTML5, CSS3, and responsive design principles to create websites that work across all device types.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-cyber-green">Vendor: Coders trust</span>
+                        <span class="text-xs text-gray-500">2020</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-12 text-center mono text-cyber-green">Experience</h2>
+            <div class="space-y-8">
+                <!-- Experience 1 -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold">Jr. Red Team Analyst (Intern)</h3>
+                        <span class="text-sm text-cyber-green">Bytecapsulit | 2023 - Present</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Conducted penetration tests on web applications and internal networks to identify security vulnerabilities.</li>
+                        <li>Assisted in developing custom scripts and tools to automate security testing processes.</li>
+                        <li>Participated in red team exercises simulating real-world attack scenarios.</li>
+                        <li>Documented findings and provided remediation recommendations to development teams.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-dark-800 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold">Bug Hunter</h3>
+                        <span class="text-sm text-cyber-green">HackerOne, Bugcrowd, YesWeHack | 2021 - Present</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Identified and responsibly disclosed security vulnerabilities in various web applications and APIs.</li>
+                        <li>Specialized in finding authentication bypass, XSS, CSRF, and business logic vulnerabilities.</li>
+                        <li>Ranked in the top 20% of researchers on platforms based on vulnerability severity and quality.</li>
+                        <li>Collaborated with security teams to verify and remediate reported issues.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-12 text-center mono text-cyber-green">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="box" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">HTB - Machine XYZ</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">A detailed walkthrough of a Hack The Box machine, documenting the complete penetration testing methodology from reconnaissance to privilege escalation.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">Nmap</span>
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">Metasploit</span>
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">Privilege Escalation</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-dark-700 p-6 rounded-lg shadow-md card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="box" class="text-cyber-green w-6 h-6 mr-3"></i>
+                        <h3 class="text-xl font-semibold">Web App Auth Bypass Lab</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">A deliberately vulnerable web application demonstrating common authentication bypass techniques, with educational documentation on prevention methods.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">Burp Suite</span>
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">JWT</span>
+                        <span class="px-2 py-1 bg-dark-800 text-xs rounded-full text-cyber-green">Session Hijacking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-12 text-center mono text-cyber-green">Contact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Get in touch</h3>
+                    <p class="text-gray-400 mb-6">Feel free to reach out for collaboration, questions, or just to say hello!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="text-cyber-green w-5 h-5 mr-3"></i>
+                            <a href="mailto:pentester.pranto@pm.me" class="text-gray-300 hover:text-cyber-green transition">pentester.pranto@pm.me</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="github" class="text-cyber-green w-5 h-5 mr-3"></i>
+                            <a href="https://github.com/zerotwo5" target="_blank" class="text-gray-300 hover:text-cyber-green transition">github.com/zerotwo5</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="linkedin" class="text-cyber-green w-5 h-5 mr-3"></i>
+                            <a href="https://www.linkedin.com/in/pranto025/" target="_blank" class="text-gray-300 hover:text-cyber-green transition">linkedin.com/in/pranto025</a>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00FF9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                <path d="M12 8v8"></path>
+                                <path d="M8 12h8"></path>
+                            </svg>
+                            <a href="https://t.me/pranto025" target="_blank" class="text-gray-300 hover:text-cyber-green transition">@pranto025</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form name="contact" method="POST" data-netlify="true" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 bg-dark-700 border border-dark-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-green focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 bg-dark-700 border border-dark-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-green focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 bg-dark-700 border border-dark-600 rounded-md focus:outline-none focus:ring-2 focus:ring-cyber-green focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="px-6 py-3 bg-cyber-green text-dark-900 font-medium rounded-md hover:bg-cyber-cyan transition duration-300 w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 px-4 sm:px-6 lg:px-8 border-t border-dark-700">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">© 2025 Md. Tanvir Rahman Pranto. All rights reserved.</p>
+            <p class="text-gray-500 mt-2 text-sm">Built with ♥ and protect the world</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any, on load of the website
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme) {
+            html.classList.add(currentTheme);
+            updateThemeIcon(currentTheme);
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                updateThemeIcon('light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                updateThemeIcon('dark');
+            }
+        });
+        
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                feather.replace({ 'data-feather': 'moon' });
+            } else {
+                feather.replace({ 'data-feather': 'sun' });
+            }
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                feather.replace({ 'data-feather': 'menu' });
+            } else {
+                feather.replace({ 'data-feather': 'x' });
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        feather.replace({ 'data-feather': 'menu' });
+                    }
+                }
+            });
+        });
+        
+        // Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+        
+        // Replace all feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
