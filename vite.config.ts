@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => ({
     open: true // This will automatically open the browser
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  base: "/portfolio/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
