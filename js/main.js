@@ -27,25 +27,33 @@ function renderSkills() {
 }
 
 function renderCertifications() {
-  document.getElementById("cert-grid").innerHTML = CERTIFICATES.map((c) => `
-    <div class="card card-secondary card-hover">
-      <div class="cert-head">
-        <div class="cert-head-left">
-          ${icon("award", "icon icon-6 cyber-text")}
-          <h3 class="cert-title">${esc(c.title)}</h3>
+  document.getElementById("cert-grid").innerHTML = CERTIFICATES.map((c) => {
+    const viewer = `certificate.html?id=${encodeURIComponent(c.id)}`;
+    const img = `certificates/${encodeURIComponent(c.id)}.png`;
+    return `
+    <article class="card card-secondary card-hover cert-card">
+      <div class="cert-thumb">
+        <img src="${img}" alt="${esc(c.title)}" loading="lazy" />
+      </div>
+      <div class="cert-body">
+        <div class="cert-head">
+          <div class="cert-head-left">
+            ${icon("award", "icon icon-6 cyber-text")}
+            <h3 class="cert-title">${esc(c.title)}</h3>
+          </div>
+          ${icon("external-link", "icon icon-4 cyber-text cert-open-icon")}
         </div>
-        <!-- Opens certificate.html in a new tab (works on GitHub Pages) -->
-        <a class="btn btn-ghost cert-open" href="certificate.html?id=${encodeURIComponent(c.id)}"
-           target="_blank" rel="noopener noreferrer" aria-label="View certificate">
-          ${icon("external-link", "icon icon-4 cyber-text")}
-        </a>
+        <p class="card-desc">${esc(c.description)}</p>
+        <div class="cert-foot">
+          <span class="cert-vendor cyber-text">Vendor: ${esc(c.vendor)}</span>
+          <span class="tag">${esc(c.year)}</span>
+        </div>
       </div>
-      <p class="card-desc">${esc(c.description)}</p>
-      <div class="cert-foot">
-        <span class="cert-vendor cyber-text">Vendor: ${esc(c.vendor)}</span>
-        <span class="tag">${esc(c.year)}</span>
-      </div>
-    </div>`).join("");
+      <!-- Invisible link that covers the whole card: opens the certificate viewer page in a new tab -->
+      <a class="cert-link" href="${viewer}" target="_blank" rel="noopener noreferrer"
+         aria-label="View certificate: ${esc(c.title)}"></a>
+    </article>`;
+  }).join("");
 
   document.getElementById("cert-note").innerHTML =
     `Click the ${icon("external-link", "icon icon-4 icon-inline")} icon to view certificate details`;

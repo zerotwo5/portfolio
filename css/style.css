@@ -258,9 +258,6 @@ button { background: none; cursor: pointer; padding: 0; }
 .cert-head-left { display: flex; align-items: center; }
 .cert-head-left .icon { margin-right: 0.75rem; }
 .cert-title { font-size: 1.125rem; line-height: 1.375; font-weight: 600; }
-.cert-open { margin-left: 0.5rem; padding: 0.5rem; }
-.cert-open:hover { background: hsl(var(--muted)); }
-.cert-open .icon { margin: 0; width: 1rem; height: 1rem; }
 .card-desc { color: hsl(var(--muted-foreground)); margin-bottom: 1rem; font-size: 0.875rem; line-height: 1.625; }
 .cert-foot { display: flex; justify-content: space-between; align-items: center; }
 .cert-vendor { font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; }
@@ -272,6 +269,21 @@ button { background: none; cursor: pointer; padding: 0; }
   padding: 0.25rem 0.5rem;
   border-radius: calc(var(--radius) - 2px);
 }
+/* Certificate card: image preview on top, details below, whole card clickable */
+.cert-card { position: relative; padding: 0; overflow: hidden; }
+.cert-thumb { --cert-thumb-height: 10rem; height: var(--cert-thumb-height); overflow: hidden; background: hsl(var(--background)); }
+.cert-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s;
+}
+.cert-card:hover .cert-thumb img { transform: scale(1.03); }
+.cert-body { padding: 1.5rem; }
+.cert-link { position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
+.cert-open-icon { margin-left: 0.5rem; margin-top: 0.25rem; }
+.cert-link:focus-visible { outline: 2px solid hsl(var(--cyber-green)); outline-offset: -2px; }
 .cert-note { margin-top: 2rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem; color: hsl(var(--muted-foreground)); }
 
 /* ---------- Experience ---------- */
