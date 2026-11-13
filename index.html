@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Tanvir Rahman Pranto | Cybersecurity Professional</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <meta name="description" content="Junior Red Team Analyst | Bug Hunter | Penetration Tester specializing in ethical hacking, web application security, and automation. Available for cybersecurity roles and consulting." />
+  <meta name="author" content="Md. Tanvir Rahman Pranto" />
+  <meta name="keywords" content="cybersecurity, penetration testing, bug bounty, red team, ethical hacking, web security, vulnerability assessment" />
+
+  <meta property="og:title" content="Md. Tanvir Rahman Pranto | Cybersecurity Professional" />
+  <meta property="og:description" content="Junior Red Team Analyst | Bug Hunter | Penetration Tester specializing in ethical hacking and web application security." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo font-mono cyber-text">pranto@root:~$</span>
+
+      <!-- To add a new menu item: add one <li> here (href must match a section id) -->
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#certifications">Certifications</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#cv">CV</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="btn btn-ghost btn-sm menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"></button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <canvas class="matrix-canvas" id="matrix-canvas"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title font-mono fade-in">Md. Tanvir Rahman Pranto</h1>
+      <p class="hero-tagline font-mono fade-in delay-300">"Junior Red Team Analyst | Bug Hunter | Penetration Tester"</p>
+      <div class="hero-buttons fade-in delay-500">
+        <a class="btn btn-primary" href="#skills">View Skills</a>
+        <a class="btn btn-outline" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== About ===== -->
+    <section id="about" class="section section-alt">
+      <div class="wrap-6xl">
+        <h2 class="section-title font-mono cyber-text">About Me</h2>
+        <div class="about-box card-hover">
+          <div class="about-grid">
+            <div class="about-photo">
+              <div class="about-photo-frame">
+                <div class="img-wrap cyber-glow">
+                  <img src="images/profile.jpg" alt="Md. Tanvir Rahman Pranto - Cybersecurity Professional" />
+                </div>
+                <div class="frame-border"></div>
+              </div>
+            </div>
+            <div class="about-text">
+              <p>
+                Hello! I'm Md. Tanvir Rahman Pranto, a passionate cybersecurity learner and aspiring Red Team professional.
+                I specialize in ethical hacking, penetration testing, and network security, with a strong interest in automation
+                and building efficient recon workflows.
+              </p>
+              <p>
+                I spend my time exploring real-world attack scenarios, solving Hack The Box and TryHackMe labs, and continuously
+                improving my skills in reconnaissance, privilege escalation, and web exploitation. I also enjoy scripting in Bash
+                and Python to automate repetitive security tasks and make my workflow faster and more effective.
+              </p>
+              <p>
+                My goal is to help secure systems by identifying vulnerabilities before attackers do. I am committed to continuous
+                learning, staying up-to-date with the latest security tools, techniques, and methodologies, and sharing knowledge
+                with the cybersecurity community.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills (filled from js/data.js) ===== -->
+    <section id="skills" class="section">
+      <div class="wrap-6xl">
+        <h2 class="section-title font-mono cyber-text">Skills</h2>
+        <div class="grid grid-3" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Certifications (filled from js/data.js) ===== -->
+    <section id="certifications" class="section section-alt">
+      <div class="wrap-6xl">
+        <h2 class="section-title font-mono cyber-text">Certifications</h2>
+        <div class="grid grid-2" id="cert-grid"></div>
+        <p class="cert-note" id="cert-note"></p>
+      </div>
+    </section>
+
+    <!-- ===== Experience (filled from js/data.js) ===== -->
+    <section id="experience" class="section">
+      <div class="wrap-4xl">
+        <h2 class="section-title font-mono cyber-text">Experience</h2>
+        <div class="exp-list" id="exp-list"></div>
+      </div>
+    </section>
+
+    <!-- ===== Projects (filled from js/data.js) ===== -->
+    <section id="projects" class="section section-alt">
+      <div class="wrap-4xl">
+        <h2 class="section-title font-mono cyber-text">Projects</h2>
+        <div class="grid grid-2" id="project-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== CV ===== -->
+    <section id="cv" class="section">
+      <div class="wrap-4xl">
+        <div class="card cv-box card-hover">
+          <div class="cv-icon"><div class="cv-icon-circle cyber-text" id="cv-icon"></div></div>
+          <h2 class="cv-title font-mono cyber-text">Download My CV</h2>
+          <p class="cv-text">
+            Access my latest CV and professional documents. Click below to view my Google Drive
+            folder with up-to-date materials, including my cybersecurity experience, skills, and certifications.
+          </p>
+          <a class="btn btn-primary btn-lg cv-btn" id="cv-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <p class="cv-updated" id="cv-updated"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section">
+      <div class="wrap-4xl">
+        <h2 class="section-title font-mono cyber-text">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in touch</h3>
+            <p>Feel free to reach out for collaboration, questions, or just to say hello!</p>
+            <div class="social-list" id="social-list"></div>
+          </div>
+
+          <div class="card contact-form">
+            <h3>Send a Message</h3>
+            <form id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="your.email@example.com" />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or just say hello..."></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" id="submit-btn" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© <span id="year">2025</span> Md. Tanvir Rahman Pranto. All rights reserved.</p>
+      <p>Built with ♥ and protect the world</p>
+    </div>
+  </footer>
+
+  <div class="toast-viewport" id="toast-root" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/matrix.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
