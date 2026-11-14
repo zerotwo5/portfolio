@@ -270,7 +270,7 @@ button { background: none; cursor: pointer; padding: 0; }
   border-radius: calc(var(--radius) - 2px);
 }
 /* Certificate card: image preview on top, details below, whole card clickable */
-.cert-card { position: relative; padding: 0; overflow: hidden; }
+.cert-card { position: relative; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
 .cert-thumb { --cert-thumb-height: 10rem; height: var(--cert-thumb-height); overflow: hidden; background: hsl(var(--background)); }
 .cert-thumb img {
   width: 100%;
@@ -280,9 +280,22 @@ button { background: none; cursor: pointer; padding: 0; }
   transition: transform 0.3s;
 }
 .cert-card:hover .cert-thumb img { transform: scale(1.03); }
-.cert-body { padding: 1.5rem; }
+.cert-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.cert-thumb { flex-shrink: 0; }
+.cert-body .cert-foot { margin-top: auto; } /* vendor + year always stay at the bottom of the card */
 .cert-link { position: absolute; inset: 0; z-index: 1; border-radius: var(--radius); }
 .cert-open-icon { margin-left: 0.5rem; margin-top: 0.25rem; }
+/* Certificate layout: 3 cards per row on desktop, 2 on tablet, 1 on mobile.
+   Cards in an incomplete last row are centered. */
+#cert-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+#cert-grid .cert-card { width: 100%; }
+@media (min-width: 768px) {
+  #cert-grid .cert-card { width: calc((100% - 1.5rem) / 2); }
+}
+@media (min-width: 1024px) {
+  #cert-grid .cert-card { width: calc((100% - 3rem) / 3); }
+}
+
 .cert-link:focus-visible { outline: 2px solid hsl(var(--cyber-green)); outline-offset: -2px; }
 .cert-note { margin-top: 2rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem; color: hsl(var(--muted-foreground)); }
 
@@ -495,7 +508,7 @@ button { background: none; cursor: pointer; padding: 0; }
   .hero-title { font-size: 3.75rem; line-height: 1; }
   .hero-tagline { font-size: 1.5rem; line-height: 2rem; }
   .grid-2, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; } /* space between 'Get in touch' and 'Send a Message' */
   .exp-head { flex-direction: row; justify-content: space-between; align-items: center; }
   .exp-period { align-self: auto; margin-top: 0; }
   .cert-view-head { flex-direction: row; justify-content: space-between; align-items: center; }

@@ -41,7 +41,6 @@ function renderCertifications() {
             ${icon("award", "icon icon-6 cyber-text")}
             <h3 class="cert-title">${esc(c.title)}</h3>
           </div>
-          ${icon("external-link", "icon icon-4 cyber-text cert-open-icon")}
         </div>
         <p class="card-desc">${esc(c.description)}</p>
         <div class="cert-foot">
@@ -55,8 +54,8 @@ function renderCertifications() {
     </article>`;
   }).join("");
 
-  document.getElementById("cert-note").innerHTML =
-    `Click the ${icon("external-link", "icon icon-4 icon-inline")} icon to view certificate details`;
+  document.getElementById("cert-note").textContent =
+    "Click on a certificate to view details";
 }
 
 function renderExperience() {
