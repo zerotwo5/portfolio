@@ -337,11 +337,29 @@ button { background: none; cursor: pointer; padding: 0; }
 /* ---------- CV ---------- */
 .cv-box { padding: 2rem; text-align: center; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
 .cv-icon { display: flex; justify-content: center; margin-bottom: 1.5rem; }
-.cv-icon-circle { padding: 1rem; background: hsl(var(--cyber-green) / 0.1); border-radius: 9999px; }
+.cv-icon-circle {
+  padding: 1rem;
+  background: hsl(var(--cyber-green) / 0.1);
+  border: 1px solid hsl(var(--cyber-green) / 0.35);
+  border-radius: 9999px;
+  box-shadow: 0 0 30px -4px hsl(var(--cyber-green) / 0.55);
+}
 .cv-title { font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; margin-bottom: 1rem; }
 .cv-text { color: hsl(var(--muted-foreground)); margin: 0 auto 2rem; max-width: 42rem; }
 .cv-btn .icon { width: 1.25rem; height: 1.25rem; }
 .cv-btn:hover .icon { animation: bounce 1s infinite; }
+#cv-link {
+  font-weight: 600;
+  background: linear-gradient(90deg, hsl(var(--cyber-green)), hsl(var(--cyber-cyan)));
+  box-shadow: 0 6px 20px -6px hsl(var(--cyber-green) / 0.6);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+#cv-link:hover {
+  background: linear-gradient(90deg, hsl(var(--cyber-green)), hsl(var(--cyber-cyan)));
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px hsl(var(--cyber-green) / 0.75);
+}
 .cv-updated { font-size: 0.75rem; line-height: 1rem; color: hsl(var(--muted-foreground)); margin-top: 1rem; }
 @keyframes bounce {
   0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
@@ -366,28 +384,113 @@ button { background: none; cursor: pointer; padding: 0; }
 .social-link { color: hsl(var(--muted-foreground)); transition: color 0.2s; }
 .social-link:hover { color: hsl(var(--cyber-green)); }
 
-.contact-form form > * + * { margin-top: 1rem; }
-.field label { display: block; font-size: 0.875rem; line-height: 1.25rem; font-weight: 500; }
+/* ----- Contact form card + CV card (same style) ----- */
+.contact-form,
+.cv-box {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem;
+  background: linear-gradient(145deg, hsl(var(--card-secondary)) 0%, hsl(var(--card)) 60%);
+  border: 1px solid hsl(var(--cyber-green) / 0.25);
+  box-shadow: 0 0 40px -12px hsl(var(--cyber-green) / 0.35), 0 10px 25px -10px rgb(0 0 0 / 0.6);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contact-form:hover,
+.contact-form:focus-within,
+.cv-box:hover {
+  border-color: hsl(var(--cyber-green) / 0.5);
+  box-shadow: 0 0 50px -10px hsl(var(--cyber-green) / 0.45), 0 10px 25px -10px rgb(0 0 0 / 0.6);
+}
+/* glowing line on top of the card */
+.contact-form::before,
+.cv-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, hsl(var(--cyber-green)), hsl(var(--cyber-cyan)), transparent);
+}
+/* soft glow in the top-right corner */
+.contact-form::after,
+.cv-box::after {
+  content: '';
+  position: absolute;
+  top: -5rem;
+  right: -5rem;
+  width: 14rem;
+  height: 14rem;
+  background: radial-gradient(circle, hsl(var(--cyber-green) / 0.14), transparent 70%);
+  pointer-events: none;
+}
+.contact-form > *, .cv-box > * { position: relative; z-index: 1; }
+.cv-box { padding: 2.5rem 2rem; }
+
+.form-head { margin-bottom: 1.5rem; }
+.contact-form .form-head h3 { margin-bottom: 0.25rem; }
+.form-head p { font-size: 0.875rem; line-height: 1.25rem; color: hsl(var(--muted-foreground)); }
+
+.contact-form form > * + * { margin-top: 1.25rem; }
+.field label {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  transition: color 0.2s;
+}
+.field:focus-within label { color: hsl(var(--cyber-green)); }
 .field input, .field textarea {
   display: block;
   width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  background: hsl(var(--card-secondary));
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  background-color: hsl(var(--background));
+  background-repeat: no-repeat;
+  background-size: 1.125rem;
+  background-position: 0.875rem center;
   border: 1px solid hsl(var(--muted));
-  border-radius: calc(var(--radius) - 2px);
+  border-radius: var(--radius);
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
-.field input { height: 2.5rem; }
-.field textarea { min-height: 80px; resize: none; }
-.field input::placeholder, .field textarea::placeholder { color: hsl(var(--muted-foreground)); }
+.field input { height: 3rem; }
+.field textarea { min-height: 8rem; resize: none; background-position: 0.875rem 0.875rem; }
+#name { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffa1' stroke-opacity='0.75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E"); }
+#email { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffa1' stroke-opacity='0.75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E"); }
+#message { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300ffa1' stroke-opacity='0.75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E"); }
+.field input::placeholder, .field textarea::placeholder { color: hsl(var(--muted-foreground) / 0.7); }
+.field input:hover, .field textarea:hover { border-color: hsl(var(--cyber-green) / 0.4); }
 .field input:focus, .field textarea:focus {
   border-color: hsl(var(--cyber-green));
-  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--cyber-green));
+  background-color: hsl(var(--card));
+  box-shadow: 0 0 0 3px hsl(var(--cyber-green) / 0.18), 0 0 18px -4px hsl(var(--cyber-green) / 0.5);
 }
+
 .btn-block { width: 100%; }
+#submit-btn {
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, hsl(var(--cyber-green)), hsl(var(--cyber-cyan)));
+  box-shadow: 0 6px 20px -6px hsl(var(--cyber-green) / 0.6);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+#submit-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, hsl(var(--cyber-green)), hsl(var(--cyber-cyan)));
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px hsl(var(--cyber-green) / 0.75);
+}
+#submit-btn:active:not(:disabled) { transform: translateY(0); }
+#submit-btn .icon { transition: transform 0.2s; }
+#submit-btn:hover:not(:disabled) .icon { transform: translate(3px, -3px); }
 
 /* ---------- Footer ---------- */
 .footer { background: hsl(var(--background)); padding: 2rem 1rem; border-top-width: 1px; }
@@ -487,6 +590,7 @@ button { background: none; cursor: pointer; padding: 0; }
    ========================================================================== */
 @media (min-width: 640px) {
   .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .contact-form { padding: 2rem; }
   .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
   .nav-inner { padding: 0 1.5rem; }
   .footer { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -508,7 +612,7 @@ button { background: none; cursor: pointer; padding: 0; }
   .hero-title { font-size: 3.75rem; line-height: 1; }
   .hero-tagline { font-size: 1.5rem; line-height: 2rem; }
   .grid-2, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; } /* space between 'Get in touch' and 'Send a Message' */
+  .contact-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 4rem; } /* space between 'Get in touch' and 'Send a Message' */
   .exp-head { flex-direction: row; justify-content: space-between; align-items: center; }
   .exp-period { align-self: auto; margin-top: 0; }
   .cert-view-head { flex-direction: row; justify-content: space-between; align-items: center; }
