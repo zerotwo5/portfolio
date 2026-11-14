@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.title = cert.title + " | Md. Tanvir Rahman Pranto";
-  const pdf = `certificates/${cert.id}.pdf`;
-  const png = `certificates/${cert.id}.png`;
+  // encodeURIComponent makes file names with spaces work (e.g. "API sec CASA-cert")
+  const pdf = `certificates/${encodeURIComponent(cert.id)}.pdf`;
+  const png = `certificates/${encodeURIComponent(cert.id)}.png`;
 
   // Loading spinner is shown until the image is ready
   app.innerHTML = `

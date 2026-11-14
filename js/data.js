@@ -6,7 +6,8 @@
    - New project     -> add one { ... } block inside PROJECTS
    - New skill       -> add { name, level } inside a category in SKILL_CATEGORIES
    - New certificate -> 1) put  <id>.pdf  and  <id>.png  in the /certificates folder
-                        2) add one { id: "<id>", ... } block inside CERTIFICATES
+                        2) add one { id: "<id>", date: "YYYY-MM-DD", ... } block inside CERTIFICATES
+                        (the site sorts certificates by date automatically, newest first)
    No other file needs to be changed.
    ========================================================================== */
 
@@ -78,20 +79,45 @@ const SKILL_CATEGORIES = [
 ];
 
 // The certificate files must be: certificates/<id>.pdf and certificates/<id>.png
+// "date" is used for sorting (newest first) and is shown on the card as "Month Year".
 const CERTIFICATES = [
+  {
+    id: "API sec CASA-cert",
+    title: "Certified API Security Analyst (CASA)",
+    vendor: "APISEC University",
+    date: "2026-05-25",
+    description:
+      "Learned how APIs work and how to find common API vulnerabilities, including the OWASP API Security Top 10, such as broken authentication and broken object-level authorization.",
+  },
+  {
+    id: "Jr. RED Team analyst-cert",
+    title: "Jr Red Team Analyst (Trainee) Internship Program",
+    vendor: "Byte Capsule",
+    date: "2025-12-02",
+    description:
+      "Gained hands-on experience in penetration testing and red team work, including reconnaissance, vulnerability assessment, and reporting findings with remediation advice.",
+  },
   {
     id: "bug-hunting-cert",
     title: "Professional Bug Hunting & Advanced Web Application Security Testing",
-    vendor: "Bytecapsuleit",
-    year: "September 2025",
+    vendor: "Byte Capsule",
+    date: "2025-09-01", // only the month and year are shown
     description:
       "Comprehensive training in identifying and exploiting web vulnerabilities, including OWASP Top 10, with hands-on labs and real-world scenarios.",
+  },
+  {
+    id: "Linux Server Management and Security-cert",
+    title: "Linux Server Management and Security",
+    vendor: "University of Colorado",
+    date: "2025-03-22",
+    description:
+      "Learned to set up and manage Linux servers, including users and permissions, services, networking, firewalls, and basic server hardening.",
   },
   {
     id: "linux-shell-cert",
     title: "Hands-on Introduction to Linux Commands & Shell Scripting",
     vendor: "IBM",
-    year: "March 2025",
+    date: "2025-03-15",
     description:
       "Practical course covering essential Linux commands, filesystem navigation, permissions, and shell scripting for automation tasks.",
   },
@@ -99,15 +125,23 @@ const CERTIFICATES = [
     id: "networking-cert",
     title: "Networking Fundamentals",
     vendor: "Akamami",
-    year: "February 2025",
+    date: "2025-02-09",
     description:
       "Fundamental concepts of networking including TCP/IP, DNS, DHCP, firewalls, and network security principles.",
+  },
+  {
+    id: "CertifiedAppSecPractitioner",
+    title: "Certified AppSec Practitioner (CAP) - Mock Exam",
+    vendor: "The SecOps Group",
+    date: "2025-01-21",
+    description:
+      "Practiced core application security concepts, including common web vulnerabilities from the OWASP Top 10, through a mock exam.",
   },
   {
     id: "web-design-cert",
     title: "Responsive Web Design Certificate",
     vendor: "Coders trust",
-    year: "January 2021",
+    date: "2021-01-01", // only the month and year are shown
     description:
       "Certification covering HTML5, CSS3, and responsive design principles to create websites that work across all device types.",
   },
@@ -116,8 +150,8 @@ const CERTIFICATES = [
 const EXPERIENCE = [
   {
     title: "Jr. Red Team Analyst (Intern)",
-    company: "Bytecapsulit",
-    period: "2025 - 2026",
+    company: "Byte Capsule",
+    period: "Sep 2025 - Dec 2025",
     responsibilities: [
       "Conducted penetration tests on web applications and internal networks to identify security vulnerabilities.",
       "Assisted in developing custom scripts and tools to automate security testing processes.",
@@ -128,7 +162,7 @@ const EXPERIENCE = [
   {
     title: "Bug Hunter",
     company: "HackerOne, Bugcrowd, YesWeHack",
-    period: "2024 - 2026",
+    period: "2024 - Present",
     responsibilities: [
       "Identified and responsibly disclosed security vulnerabilities in various web applications and APIs.",
       "Specialized in finding authentication bypass, XSS, CSRF, and business logic vulnerabilities.",

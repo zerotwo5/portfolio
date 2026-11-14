@@ -26,8 +26,15 @@ function renderSkills() {
     </div>`).join("");
 }
 
+// "2026-05-25" -> "May 2026"
+function formatCertDate(date) {
+  return new Date(date).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+}
+
 function renderCertifications() {
-  document.getElementById("cert-grid").innerHTML = CERTIFICATES.map((c) => {
+  // Newest certificate first
+  const sorted = [...CERTIFICATES].sort((a, b) => new Date(b.date) - new Date(a.date));
+  document.getElementById("cert-grid").innerHTML = sorted.map((c) => {
     const viewer = `certificate.html?id=${encodeURIComponent(c.id)}`;
     const img = `certificates/${encodeURIComponent(c.id)}.png`;
     return `
@@ -45,7 +52,7 @@ function renderCertifications() {
         <p class="card-desc">${esc(c.description)}</p>
         <div class="cert-foot">
           <span class="cert-vendor cyber-text">Vendor: ${esc(c.vendor)}</span>
-          <span class="tag">${esc(c.year)}</span>
+          <span class="tag">${esc(formatCertDate(c.date))}</span>
         </div>
       </div>
       <!-- Invisible link that covers the whole card: opens the certificate viewer page in a new tab -->
